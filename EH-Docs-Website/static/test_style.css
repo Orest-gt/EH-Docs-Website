@@ -65,6 +65,13 @@ html {
     justify-content: flex-start; /* για αριστερά */
 }
 
+.bottom-row-right {
+    width: 180%;
+    height: 10px;
+    display: flex;
+    justify-content: flex-end; /* για δεξιά */
+}
+
 .audio-button {
     font-family: bold;
     border-radius: 100px;

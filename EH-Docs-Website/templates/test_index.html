@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Test</title>
-    <link href="/static/test_style.css" rel="stylesheet">
-    <script src="/scripts/test_script.js"></script>
+    <link href="../static/test_style.css" rel="stylesheet">
+    <script src="../scripts/test_script.js"></script>
 </head>
 <body>
     <video muted autoplay loop class="back-ground">
-        <source src="/assets/videos/1730393-uhd_3840_2160_25fps.mp4" type="video/mp4"/>
+        <source src="../assets/videos/1730393-uhd_3840_2160_25fps.mp4" type="video/mp4"/>
         Your browser does not support the video tag.
     </video>
     <audio loop id="back-audio">
-        <source src="/assets/audio/Aria-Math.mp3" type="audio/mp3">
+        <source src="../assets/audio/Aria-Math.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
@@ -27,6 +27,9 @@
     </button>
     <div class="bottom-row">
     <button class="audio-button" onclick="toggleAudio()" type="button">Music</button>
+    </div>
+    <div class="bottom-row-right">
+        <button class="audio-button" type="button" onclick="location.href='/home'">Tools</button>
     </div>
     </div>
     </form>
