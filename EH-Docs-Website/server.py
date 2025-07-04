@@ -6,6 +6,9 @@ from fastapi.templating import Jinja2Templates
 import uvicorn
 from pydantic import BaseModel
 import sqlite3
+import markdown
+from pathlib import Path
+from typing import Optional
 
 class User(BaseModel):
     username: str
@@ -59,11 +62,11 @@ app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 app.mount("/scripts", StaticFiles(directory="scripts"), name="scripts")
 templates = Jinja2Templates(directory="templates")
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/login", response_class=HTMLResponse)
 async def get_login_page(request: Request):
     return templates.TemplateResponse("test_index.html", {"request": request})
 
-@app.post("/")
+@app.post("/login")
 async def login_page(username : str = Form(...), password: str = Form(...)):
     if login_user(username, password):
         if username == "admin" and password == "admin123":
@@ -82,6 +85,24 @@ def admin_page(request: Request):
     if request.cookies.get("auth") != "admin":
         raise HTTPException(status_code=404, detail="Forbidden")
     return {"message": "Hello Admin!"}
+
+@app.get("/home", response_class=HTMLResponse)
+async def home(request: Request, name: Optional[str] = None):
+    if name:
+        mark_path = Path(f"assets/documents/{name}.md")
+        if not mark_path.exists():
+            return HTMLResponse("<h1>404 Not Found!</h1>")
+        with open(mark_path, "r", encoding="utf-8") as file:
+            text = file.read()
+        md_to_html = markdown.markdown(text)
+        return templates.TemplateResponse("mark_base.html", {"request": request, "title": name, "content": md_to_html})
+    else:
+        return templates.TemplateResponse("select_tool.html", {"request": request})
+
+@app.get("/")
+def redirect_to_home():
+    return RedirectResponse(url="/home")
+
 
 if __name__ == "__main__":
     create_db()
