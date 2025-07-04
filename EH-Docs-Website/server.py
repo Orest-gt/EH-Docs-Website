@@ -84,18 +84,21 @@ async def login_page(username : str = Form(...), password: str = Form(...)):
 def admin_page(request: Request):
     if request.cookies.get("auth") != "admin":
         raise HTTPException(status_code=404, detail="Forbidden")
-    return {"message": "Hello Admin!"}
+    return RedirectResponse(url="/home") # with context it had to be bro like this: return templates.TemplateResponse("home.html", {"request": request})
 
 @app.get("/home", response_class=HTMLResponse)
 async def home(request: Request, name: Optional[str] = None):
     if name:
-        mark_path = Path(f"assets/documents/{name}.md")
-        if not mark_path.exists():
-            return HTMLResponse("<h1>404 Not Found!</h1>")
-        with open(mark_path, "r", encoding="utf-8") as file:
-            text = file.read()
-        md_to_html = markdown.markdown(text)
-        return templates.TemplateResponse("mark_base.html", {"request": request, "title": name, "content": md_to_html})
+        if request.cookies.get("auth") == "admin":
+            mark_path = Path(f"assets/documents/{name}.md")
+            if not mark_path.exists():
+                return HTMLResponse("<h1>404 Not Found!</h1>")
+            with open(mark_path, "r", encoding="utf-8") as file:
+                text = file.read()
+            md_to_html = markdown.markdown(text)
+            return templates.TemplateResponse("mark_base.html", {"request": request, "title": name, "content": md_to_html})
+        else:
+            raise HTTPException(status_code=403, detail="Please log in as admin to access the content provided!")
     else:
         return templates.TemplateResponse("select_tool.html", {"request": request})
 
