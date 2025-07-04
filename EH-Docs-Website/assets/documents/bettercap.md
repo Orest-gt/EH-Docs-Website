@@ -58,7 +58,6 @@ net.sniff off
 7. MODULES
 Load modules (e.g., WiFi, HID attacks):
 
-Αντιγραφή κώδικα
 wifi.recon on
 hid.probe
 WARNING
