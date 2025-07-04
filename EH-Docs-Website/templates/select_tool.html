@@ -6,26 +6,28 @@
     <link href="../static/select_tools.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-  <h1 style="padding-bottom: 100px;">TOOLS LIST</h1>
+  <h1 style="padding-bottom: 50px;">TOOLS LIST</h1>
   <form method="get" action="/home">
-    <button type="submit" name="name" value="gobuster">GoBuster</button>
-    <button type="submit" name="name" value="netcat">NetCat</button>
-    <button type="submit" name="name" value="nmap">Nmap</button>
-    <button type="submit" name="name" value="hydra">Hydra</button>
-    <button type="submit" name="name" value="basic">Basic</button>
-    <button type="submit" name="name" value="nikto">Nikto</button>
-    <button type="submit" name="name" value="whatweb">WhatWeb</button>
-    <button type="submit" name="name" value="wireshark">Wireshark</button>
-    <button type="submit" name="name" value="amass">Amass</button>
-    <button type="submit" name="name" value="bettercap">Bettercap</button>
-    <button type="submit" name="name" value="aircrack-ng">Aircrack-ng</button>
-    <button type="submit" name="name" value="john-the-ripper">John the Ripper</button>
-    <button type="submit" name="name" value="burp-suite">Burp Suite</button>
-    <button type="submit" name="name" value="metasploit">Metasploit</button>
-    <button type="submit" name="name" value="msfvenom">msfvenom</button>
-    <button type="submit" name="name" value="nmap">nmap</button>
-    <button type="submit" name="name" value="windows-basic-cheatsheet">Windows Basic Cheatsheet</button>
+    <div class="button-container">
+      <button type="submit" name="name" value="gobuster">GoBuster</button>
+      <button type="submit" name="name" value="netcat">NetCat</button>
+      <button type="submit" name="name" value="nmap">Nmap</button>
+      <button type="submit" name="name" value="hydra">Hydra</button>
+      <button type="submit" name="name" value="basic">Basic</button>
+      <button type="submit" name="name" value="nikto">Nikto</button>
+      <button type="submit" name="name" value="whatweb">WhatWeb</button>
+      <button type="submit" name="name" value="wireshark">Wireshark</button>
+      <button type="submit" name="name" value="amass">Amass</button>
+      <button type="submit" name="name" value="bettercap">Bettercap</button>
+      <button type="submit" name="name" value="aircrack-ng">Aircrack-ng</button>
+      <button type="submit" name="name" value="john-the-ripper">John the Ripper</button>
+      <button type="submit" name="name" value="burp-suite">Burp Suite</button>
+      <button type="submit" name="name" value="metasploit">Metasploit</button>
+      <button type="submit" name="name" value="msfvenom">msfvenom</button>
+      <button type="submit" name="name" value="nmap">nmap</button>
+      <button type="submit" name="name" value="windows-basic-cheatsheet">Windows Basic Cheatsheet</button>
+    </div>
   </form>
-  <button onclick="location.href='/login'">Go to login page</button>
+  <button class="login_button" onclick="location.href='/login'">Go to login page</button>
 </body>
 </html>

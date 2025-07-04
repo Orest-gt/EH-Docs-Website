@@ -1,3 +1,19 @@
+/* Container for tool buttons */
+.button-container {
+    background: white;
+    border: 2px solid #4CAF50;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    padding: 40px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+} /* that was ai made */
+
 html {
     box-sizing: border-box;
 }
@@ -30,4 +46,13 @@ button {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
+}
+
+.login_button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    color: #000;
+    background-color: bisque;
 }
