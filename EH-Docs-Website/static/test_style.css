@@ -1,0 +1,114 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 330px;
+    flex-direction: column;
+    border: 10px solid #c62b2b;
+    background-color: beige;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    padding: 5px 100px;
+    border-radius: 20px;
+    margin: 150px;
+    box-shadow: 0 0 40px rgb(8, 82, 38);
+    position: relative;
+}
+
+body {
+    background-color: aquamarine;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.input-field {
+    height: 30px;
+    border-radius: 5px;
+    border: 5px solid #ccc;
+    padding: 5px 10px;
+    margin: 5px 10px;
+}
+
+.input-button {
+    font-family: bold;
+    border-radius: 100px;
+    border: 3px solid #c62b2b;
+    background-color: #a23838;
+    color: black;
+    padding: 8px 20px; /* μέγεθος κουμπιού */
+    font-size: 14px;   /* μέγεθος γραμματοσειράς */
+    cursor: pointer;   /* δείχνει ότι είναι clickable */
+    transition: background-color 0.3s ease;
+    margin: 11px 5px;
+    transform: scale(1.0);
+}
+
+.bottom-row {
+    width: 180%;
+    height: 10px;
+    display: flex;
+    justify-content: flex-start; /* για αριστερά */
+}
+
+.audio-button {
+    font-family: bold;
+    border-radius: 100px;
+    border: 3px solid #0a0808;
+    height: 50px;
+    width: 60px;
+    color: black;
+}
+
+.input-button:hover {
+    background-color: #c62b2b; /* λίγο πιο φωτεινό στο hover */
+    color: white;
+    transform: scale(1.2);
+}
+
+.title-login {
+    font-size: 30px;
+    color: #c62b2b;
+    margin-bottom: 20px;
+}
+
+.back-ground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* καλύπτει όλη την οθόνη */
+    z-index: -1; /* πίσω από όλα τα άλλα στοιχεία */
+    pointer-events: none; /* να μην επηρεάζει τα κλικ */
+    opacity: 0.8; /* ελαφρώς διαφανές */
+    /* filter: blur(2px); ελαφρύ θόλωμα */
+    filter: none;
+    -webkit-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px); /* για συμβατότητα με Safari */
+    backdrop-filter: blur(2px); /* standard property for compatibility */
+}
+
+._back-ground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
