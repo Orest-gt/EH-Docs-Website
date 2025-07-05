@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    background-color: rgb(53, 211, 228);
+    background: linear-gradient(rgb(140, 190, 48), #ac502c, #30a0af);
     font-family: Arial, sans-serif;
     margin: 0;
     display: flex;

@@ -98,7 +98,7 @@ async def home(request: Request, name: Optional[str] = None):
             md_to_html = markdown.markdown(text)
             return templates.TemplateResponse("mark_base.html", {"request": request, "title": name, "content": md_to_html})
         else:
-            raise HTTPException(status_code=403, detail="Please log in as admin to access the content provided!")
+            return templates.TemplateResponse("failed_to_open.html", {"request": request})
     else:
         return templates.TemplateResponse("select_tool.html", {"request": request})
 
