@@ -64,7 +64,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/login", response_class=HTMLResponse)
 async def get_login_page(request: Request):
-    return templates.TemplateResponse("test_index.html", {"request": request})
+    return templates.TemplateResponse("login_index.html", {"request": request})
 
 @app.post("/login")
 async def login_page(username : str = Form(...), password: str = Form(...)):
@@ -84,7 +84,7 @@ async def login_page(username : str = Form(...), password: str = Form(...)):
 def admin_page(request: Request):
     if request.cookies.get("auth") != "admin":
         raise HTTPException(status_code=404, detail="Forbidden")
-    return RedirectResponse(url="/home") # with context it had to be bro like this: return templates.TemplateResponse("home.html", {"request": request})
+    return RedirectResponse(url="/home") # with context, it had to be bro like this: return templates.TemplateResponse("home.html", {"request": request})
 
 @app.get("/home", response_class=HTMLResponse)
 async def home(request: Request, name: Optional[str] = None):
